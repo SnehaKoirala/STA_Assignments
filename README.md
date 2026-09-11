@@ -18,7 +18,7 @@ The repository is intended to keep our datasets, code, visualisations, interpret
 
 | Assignment | Topic | Main contents | Status |
 |---|---|---|---|
-| [Assignment 1](./Assignment1.ipynb) | Data and Probability Foundations | Digital-service statistics, smart-building measurements, cybersecurity probability, AI-use statement, and overall conclusion | In progress |
+| [Assignment 1](./Assignment1/Assignment1.ipynb) | Data and Probability Foundations | Digital-service statistics, smart-building measurements, cybersecurity probability, AI-use statement, and overall conclusion | In progress |
 | Future assignments | To be added | New notebooks and supporting files will be listed here | Not started |
 
 
