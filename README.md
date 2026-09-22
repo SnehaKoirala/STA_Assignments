@@ -27,23 +27,20 @@ The purpose of this repository is to keep our notebooks, datasets, code, visuali
 
 ## Repository structure
 
-Each assignment is stored in its own folder together with the notebook and any datasets required for the analysis.
+Each assignment is stored in its own folder, while shared datasets are kept in the repository-level `data/` directory.
 
 A typical structure is:
 
-```text
-STA_Assignments/
-│
-├── Assignment1/
-│   ├── Assignment1.ipynb
-│   └── data/
-│
-├── Assignment2/
-│   ├── Assignment2.ipynb
-│   └── data/
-│
-└── README.md
-```
+    STA_Assignments/
+    │
+    ├── Assignment1/
+    │   └── Assignment1.ipynb
+    │
+    ├── Assignment2/
+    │   └── Assignment2.ipynb
+    ├── data/
+    │
+    └── README.md
 
 Original datasets should remain unchanged. Any cleaning, transformation, calculation, or filtering should be performed inside the relevant notebook.
 
