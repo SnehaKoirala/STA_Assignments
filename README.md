@@ -4,7 +4,7 @@
 
 This repository contains our group assignments for **STA1 — Statistics and Data Analysis for Engineers**.
 
-The assignments cover topics such as descriptive statistics, probability, random variables, probability distributions, sampling distributions, estimation, data analysis, and visualisation. The work is completed in English using Jupyter notebooks and Python.
+The assignments cover topics such as descriptive statistics, probability, random variables, probability distributions, sampling distributions, estimation, hypothesis testing, data analysis, and visualisation. The work is completed in English using Jupyter notebooks and Python.
 
 The purpose of this repository is to keep our notebooks, datasets, code, visualisations, interpretations, and supporting documentation organised in one place throughout the course.
 
@@ -24,6 +24,7 @@ The purpose of this repository is to keep our notebooks, datasets, code, visuali
 | [Assignment 1](./Assignment1/Assignment1.ipynb) | Data and Probability Foundations           | Descriptive statistics, data visualisation, probability rules, conditional probability, Bayes' theorem, AI-use statement, and overall conclusion                                              | Completed   |
 | [Assignment 2](./Assignment2/Assignment2.ipynb) | Discrete and Continuous Probability Models | Finite random variables, PMF and CDF, binomial and Poisson models, uniform and normal distributions, exponential models, graphical model assessment, AI-use statement, and overall conclusion | In progress |
 | [Assignment 3](./Assignment3/Assignment3.ipynb) | Sampling Distributions and Estimation | Sampling distributions, CLT and law of large numbers, sensor mean estimation, t and bootstrap intervals, Wilson and Wald proportion intervals, sample-size planning, AI-use statement, and overall conclusion | Completed |
+| [Assignment 4](./Assignment4/Assignment4.ipynb) | One- and Two-Sample Tests | One-sample t and exact binomial tests, Wilson intervals, Welch's two-sample t test, paired t test, two-proportion z test and risk-difference interval, assumption diagnostics, practical significance, AI-use statement, and overall conclusion | Completed |
 | Future assignments                              | To be added                                | New notebooks and supporting files will be listed here as the course continues                                                                                                                | Not started |
 
 ## Repository structure
@@ -43,19 +44,26 @@ A typical structure is:
     ├── Assignment3/
     │   └── Assignment3.ipynb
     │
+    ├── Assignment4/
+    │   └── Assignment4.ipynb
+    │
     ├── data/
     │   ├── assignment01_digital_services.csv
     │   ├── assignment01_smart_building.csv
     │   ├── assignment02_concrete_strength.csv
     │   ├── assignment02_service_repairs.csv
     │   ├── assignment03_access_control.csv
-    │   └── assignment03_sensor_calibration.csv
+    │   ├── assignment03_sensor_calibration.csv
+    │   ├── assignment04_coating_durability.csv
+    │   └── assignment04_energy_retrofit.csv
     │
     └── README.md
 
 Original datasets should remain unchanged. Any cleaning, transformation, calculation, or filtering should be performed inside the relevant notebook.
 
 Assignment 3 uses `assignment03_sensor_calibration.csv` for estimating the mean temperature-sensor calibration error and `assignment03_access_control.csv` for estimating the false-rejection proportion of legitimate login attempts.
+
+Assignment 4 reuses the Assignment 3 datasets for a one-sample t test of mean sensor calibration error against zero and a one-sided exact binomial test of the false-rejection probability against the 5% target. It uses `assignment04_coating_durability.csv` to compare independent standard and modified coating processes with Welch's t test, and `assignment04_energy_retrofit.csv` to analyse paired before/after building-energy measurements. The software-configuration comparison uses aggregate SLA-failure counts defined directly in the notebook (38 of 300 requests for A and 22 of 320 for B), rather than a separate CSV file.
 
 ## Requirements
 
@@ -66,7 +74,7 @@ The notebooks use **Python 3** together with the following main packages:
 * pandas
 * Matplotlib
 * SciPy
-* statsmodels (used for Wilson confidence intervals in Assignment 3)
+* statsmodels (used for Wilson confidence intervals in Assignment 3 and two-proportion test and interval checks in Assignment 4)
 
 The required packages can be installed with:
 
@@ -105,6 +113,13 @@ Before submitting an assignment, the group should confirm that:
 * standard deviation and standard error are clearly distinguished;
 * confidence intervals identify the population parameter and interpret the confidence level using repeated sampling;
 * sample-size calculations round up and state their planning assumptions;
+* hypothesis tests identify the population parameter, null and alternative hypotheses, significance level, and test direction;
+* one-sample, independent-sample, and paired procedures match the study design, with the comparison order and units clearly stated;
+* p-values are interpreted conditional on the null hypothesis and assumptions, rather than as the probability that the null hypothesis is true;
+* test and confidence-interval methods are distinguished where they are not exact duals, including exact binomial versus Wilson procedures and pooled-test versus unpooled-interval standard errors;
+* statistical significance is distinguished from practical importance, with intervals compared against relevant engineering thresholds;
+* Type I and Type II errors and power are explained in context where required;
+* random sampling, random assignment, and the limits of causal and population conclusions are distinguished;
 * potential unusual observations are investigated rather than automatically removed;
 * numerical results agree with the written conclusions;
 * AI use is disclosed honestly; and
