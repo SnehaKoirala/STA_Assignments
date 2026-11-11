@@ -25,6 +25,7 @@ The purpose of this repository is to keep our notebooks, datasets, code, visuali
 | [Assignment 2](./Assignment2/Assignment2.ipynb) | Discrete and Continuous Probability Models | Finite random variables, PMF and CDF, binomial and Poisson models, uniform and normal distributions, exponential models, graphical model assessment, AI-use statement, and overall conclusion | In progress |
 | [Assignment 3](./Assignment3/Assignment3.ipynb) | Sampling Distributions and Estimation | Sampling distributions, CLT and law of large numbers, sensor mean estimation, t and bootstrap intervals, Wilson and Wald proportion intervals, sample-size planning, AI-use statement, and overall conclusion | Completed |
 | [Assignment 4](./Assignment4/Assignment4.ipynb) | One- and Two-Sample Tests | One-sample t and exact binomial tests, Wilson intervals, Welch's two-sample t test, paired t test, two-proportion z test and risk-difference interval, assumption diagnostics, practical significance, AI-use statement, and overall conclusion | Completed |
+| [Assignment 5](./Assignment5/Assignment5.ipynb) | ANOVA and Simple Linear Regression | Completed classical and Welch ANOVA, residual diagnostics, Tukey HSD and eta squared; placeholders for regression, influence diagnostics and prediction; draft AI-use statement and overall conclusion | In progress |
 | Future assignments                              | To be added                                | New notebooks and supporting files will be listed here as the course continues                                                                                                                | Not started |
 
 ## Repository structure
@@ -47,6 +48,9 @@ A typical structure is:
     ├── Assignment4/
     │   └── Assignment4.ipynb
     │
+    ├── Assignment5/
+    │   └── Assignment5.ipynb
+    │
     ├── data/
     │   ├── assignment01_digital_services.csv
     │   ├── assignment01_smart_building.csv
@@ -55,7 +59,9 @@ A typical structure is:
     │   ├── assignment03_access_control.csv
     │   ├── assignment03_sensor_calibration.csv
     │   ├── assignment04_coating_durability.csv
-    │   └── assignment04_energy_retrofit.csv
+    │   ├── assignment04_energy_retrofit.csv
+    │   ├── assignment05_composite_strength.csv
+    │   └── assignment05_pump_energy.csv
     │
     └── README.md
 
@@ -64,6 +70,8 @@ Original datasets should remain unchanged. Any cleaning, transformation, calcula
 Assignment 3 uses `assignment03_sensor_calibration.csv` for estimating the mean temperature-sensor calibration error and `assignment03_access_control.csv` for estimating the false-rejection proportion of legitimate login attempts.
 
 Assignment 4 reuses the Assignment 3 datasets for a one-sample t test of mean sensor calibration error against zero and a one-sided exact binomial test of the false-rejection probability against the 5% target. It uses `assignment04_coating_durability.csv` to compare independent standard and modified coating processes with Welch's t test, and `assignment04_energy_retrofit.csv` to analyse paired before/after building-energy measurements. The software-configuration comparison uses aggregate SLA-failure counts defined directly in the notebook (38 of 300 requests for A and 22 of 320 for B), rather than a separate CSV file.
+
+Assignment 5 uses `assignment05_composite_strength.csv` to compare mean composite strength across four curing methods and `assignment05_pump_energy.csv` for simple linear regression of energy use on pump flow rate. Parts 1–2 contain the completed and executed ANOVA analysis, including diagnostics, Welch's sensitivity analysis, Tukey comparisons and eta squared. Parts 3–4 contain question-by-question placeholders for the regression analysis, diagnostics, influence and prediction tasks. Part 5 contains a draft AI-use statement and overall conclusion to review and revise after completing the regression parts.
 
 ## Requirements
 
@@ -74,7 +82,7 @@ The notebooks use **Python 3** together with the following main packages:
 * pandas
 * Matplotlib
 * SciPy
-* statsmodels (used for Wilson confidence intervals in Assignment 3 and two-proportion test and interval checks in Assignment 4)
+* statsmodels (used for Wilson confidence intervals in Assignment 3, two-proportion test and interval checks in Assignment 4, and classical/Welch ANOVA and Tukey HSD in Assignment 5; also required for its planned regression analysis)
 
 The required packages can be installed with:
 
@@ -108,6 +116,8 @@ Before submitting an assignment, the group should confirm that:
 * tables and plots have clear titles, labels, units, and legends where appropriate;
 * every important output is followed by an interpretation;
 * model assumptions and limitations are discussed where required;
+* ANOVA's common-variance approximation is assessed, Welch's sensitivity analysis is distinguished from the justification for ordinary Tukey HSD, and eta squared is interpreted descriptively;
+* regression residual and influence diagnostics are included, mean-response confidence intervals are distinguished from individual prediction intervals, and extrapolation is limited to justified settings;
 * empirical results and model-based probabilities are clearly distinguished;
 * sample standard deviations use \(n-1\) where required;
 * standard deviation and standard error are clearly distinguished;
